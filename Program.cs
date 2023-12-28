@@ -5,14 +5,17 @@ public class Program
 	public static void Main(string[] args)
 	{
 		//var filename = @"Data\megamillions.csv";
-		var goBackTo = new DateTime(2015, 10, 04);
-		foreach (var game in new[] { Game.MegaMillions, Game.PowerBall })
-			//foreach (var game in new[] { Game.PowerBall })
+		var games = new List<Game>
 		{
-			var filename = $@"Data\{game.ToString().ToLower()}.csv";
-			var drawnNumbers = ReadPreviousNumbers.Initialize(filename, game);
-			var allWhiteBalls = GetAllWhiteBalls(drawnNumbers, goBackTo);
-			var allMegaBalls = GetAllMegaBalls(drawnNumbers, goBackTo);
+			new(GameName.MegaMillions, new DateTime(2017, 10, 31)),
+			new(GameName.PowerBall, new DateTime(2015, 10, 04))
+		};
+		foreach (var game in games)
+		{
+			var filename = $@"Data\{game.Name.ToString().ToLower()}.csv";
+			var drawnNumbers = ReadPreviousNumbers.Initialize(filename, game.Name);
+			var allWhiteBalls = GetAllWhiteBalls(drawnNumbers, game.LastFormatChange);
+			var allMegaBalls = GetAllMegaBalls(drawnNumbers, game.LastFormatChange);
 			var top5 = allWhiteBalls.Take(5).OrderBy(x => x.Value);
 
 			Console.WriteLine();

@@ -7,7 +7,7 @@ public class Drawing
 	public DateTime DrawingDate { get; set; }
 	public int[]? Numbers { get; set; }
 	public int BigNumber { get; set; }
-	public Game GameName { get; set; }
+	public GameName GameName { get; set; }
 	public int Multiplier { get; set; }
 	public double Jackpot { get; set; }
 }

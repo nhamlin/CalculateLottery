@@ -6,7 +6,7 @@ namespace CalculateLottery;
 
 public class ReadPreviousNumbers
 {
-	public static IList<Drawing> Initialize(string filename, Game gameName)
+	public static IList<Drawing> Initialize(string filename, GameName gameName)
 	{
 		IList<Drawing> drawings = new List<Drawing>();
 		var configuration = new CsvConfiguration(CultureInfo.InvariantCulture)
