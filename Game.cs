@@ -1,4 +1,7 @@
-public enum Game {
-    MegaMillions,
-    PowerBall
+namespace CalculateLottery;
+
+public enum Game
+{
+	MegaMillions,
+	PowerBall
 }
